@@ -30,7 +30,11 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+<<<<<<< HEAD
 	delete ui;
+=======
+    delete ui;
+>>>>>>> remotes/origin/sus
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -55,8 +59,13 @@ void MainWindow::on_pushButton_clicked()
 	ui->lineEdit_18->clear();
 }
 
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> remotes/origin/sus
 void MainWindow::on_saveBt_clicked()
 {
 	QSqlQuery query;
@@ -72,6 +81,7 @@ void MainWindow::on_saveBt_clicked()
 
 void MainWindow::nultext4() // расчет продолжительности вытягивания
 {
+<<<<<<< HEAD
 	if (ui->lineEdit->text()!="" && ui->lineEdit_2->text()!="" && ui->lineEdit_3->text()!="")
 	{
 		QString n = ui->lineEdit->text();
@@ -120,6 +130,59 @@ void MainWindow::nultext13() // расчет глубины походного �
 		  QString cd = ui->lineEdit_12->text();
 		  float d = ((n.toFloat()*nd.toFloat() + (c.toFloat()-1) * cd.toFloat())/100);
 
+=======
+    if (ui->lineEdit->text()!="" && ui->lineEdit_2->text()!="" && ui->lineEdit_3->text()!="")
+    {
+        QString n = ui->lineEdit->text();
+            QString s = ui->lineEdit_2->text();
+            QString t = ui->lineEdit_3->text();
+            QString h = n.left(2);
+            QString m = n.right(2);
+            QString m2 = NULL;
+            int t1 = h.toInt()*60 + m.toInt() - (s.toFloat()/t.toFloat()*60);
+            int h1 = t1/60;
+                 if (h1 < 0)
+                     h1 += 23;
+            int m1 = t1%60;
+                 if (m1 < 0)
+                     m1 += 60;
+            if (m1<10)
+              { m2 = QString::number(m1);
+                m2.insert(0, "0");
+              }
+            else m2 = QString::number(m1);
+
+            ui->lineEdit_4->setText(QString::number(h1)+":"+m2);
+    } else ui->lineEdit_4->setText("");
+}
+void MainWindow::nultext8() //расчет продолжительности втягивания
+{
+    if (ui->lineEdit_5->text()!="" && ui->lineEdit_6->text()!="" && ui->lineEdit_7->text()!="")
+    {
+        QString pp = ui->lineEdit_5->text();
+        QString rs = ui->lineEdit_6->text();
+        QString v = ui->lineEdit_7->text();
+
+        ui->lineEdit_8->setText(QString::number(round(60*(pp.toFloat()-rs.toFloat())/v.toFloat())));
+
+    } else ui->lineEdit_8->setText("");
+    float a=round(ui->lineEdit_8->text().toFloat()/6)/10;
+    ui->lineEdit_17->setText(QString::number((a)));
+}
+void MainWindow::nultext13() // расчет глубины походного порядка
+{
+    if (ui->lineEdit_9->text()!="" && ui->lineEdit_10->text()!="" && ui->lineEdit_11->text()!="" && ui->lineEdit_12->text()!="")
+    {
+          QString n = ui->lineEdit_9->text();
+          QString nd = ui->lineEdit_10->text();
+          QString c = ui->lineEdit_11->text();
+          QString cd = ui->lineEdit_12->text();
+          float d = ((n.toFloat()*nd.toFloat() + (c.toFloat()-1) * cd.toFloat())/100);
+
+
+          ui->lineEdit_13->setText(QString::number((d-remainder(d,1))/10));
+    } else ui->lineEdit_13->setText("");
+>>>>>>> remotes/origin/sus
 
 		  ui->lineEdit_13->setText(QString::number((d-remainder(d,1))/10));
 	} else ui->lineEdit_13->setText("");
@@ -128,6 +191,7 @@ void MainWindow::nultext13() // расчет глубины походного �
 }
 void MainWindow::nultext18() // расчет продолжительности марша
 {
+<<<<<<< HEAD
 	if (ui->lineEdit_14->text()!="" && ui->lineEdit_15->text()!="" && ui->lineEdit_16->text()!="" && ui->lineEdit_17->text()!="")
 	{
 		QString s = ui->lineEdit_14->text();
@@ -139,71 +203,136 @@ void MainWindow::nultext18() // расчет продолжительности 
 }
 
 void MainWindow::on_lineEdit_3_textChanged()
+=======
+    if (ui->lineEdit_14->text()!="" && ui->lineEdit_15->text()!="" && ui->lineEdit_16->text()!="" && ui->lineEdit_17->text()!="")
+    {
+        QString s = ui->lineEdit_14->text();
+        QString t = ui->lineEdit_15->text();
+        QString Ost = ui->lineEdit_16->text();
+        QString Vtyag = ui->lineEdit_17->text();
+        ui->lineEdit_18->setText(QString::number(round((s.toFloat() / t.toFloat() + Ost.toFloat() + Vtyag.toFloat())*10)/10));
+    } else ui->lineEdit_18->setText("");
+}
+
+void MainWindow::on_lineEdit_3_textChanged(const QString)
+>>>>>>> remotes/origin/sus
 {
 	MainWindow::nultext4();
 }
 
+<<<<<<< HEAD
 void MainWindow::on_lineEdit_2_textChanged()
+=======
+void MainWindow::on_lineEdit_2_textChanged(const QString)
+>>>>>>> remotes/origin/sus
 {
 	MainWindow::nultext4();
 }
 
+<<<<<<< HEAD
 void MainWindow::on_lineEdit_textChanged()
+=======
+void MainWindow::on_lineEdit_textChanged(const QString)
+>>>>>>> remotes/origin/sus
 {
 	MainWindow::nultext4();
 }
 
+<<<<<<< HEAD
 void MainWindow::on_lineEdit_5_textChanged()
+=======
+void MainWindow::on_lineEdit_5_textChanged(const QString)
+>>>>>>> remotes/origin/sus
 {
 	MainWindow::nultext8();
 }
 
+<<<<<<< HEAD
 void MainWindow::on_lineEdit_6_textChanged()
+=======
+void MainWindow::on_lineEdit_6_textChanged(const QString)
+>>>>>>> remotes/origin/sus
 {
 	MainWindow::nultext8();
 }
 
+<<<<<<< HEAD
 void MainWindow::on_lineEdit_7_textChanged()
+=======
+void MainWindow::on_lineEdit_7_textChanged(const QString)
+>>>>>>> remotes/origin/sus
 {
 	MainWindow::nultext8();
 }
 
+<<<<<<< HEAD
 void MainWindow::on_lineEdit_9_textChanged()
+=======
+void MainWindow::on_lineEdit_9_textChanged(const QString)
+>>>>>>> remotes/origin/sus
 {
 	MainWindow::nultext13();
 }
 
+<<<<<<< HEAD
 void MainWindow::on_lineEdit_10_textChanged()
+=======
+void MainWindow::on_lineEdit_10_textChanged(const QString)
+>>>>>>> remotes/origin/sus
 {
 	MainWindow::nultext13();
 }
 
+<<<<<<< HEAD
 void MainWindow::on_lineEdit_11_textChanged()
+=======
+void MainWindow::on_lineEdit_11_textChanged(const QString)
+>>>>>>> remotes/origin/sus
 {
 	MainWindow::nultext13();
 }
 
+<<<<<<< HEAD
 void MainWindow::on_lineEdit_12_textChanged()
+=======
+void MainWindow::on_lineEdit_12_textChanged(const QString)
+>>>>>>> remotes/origin/sus
 {
 	MainWindow::nultext13();
 }
 
+<<<<<<< HEAD
 void MainWindow::on_lineEdit_14_textChanged()
+=======
+void MainWindow::on_lineEdit_14_textChanged(const QString)
+>>>>>>> remotes/origin/sus
 {
 	MainWindow::nultext18();
 }
 
+<<<<<<< HEAD
 void MainWindow::on_lineEdit_15_textChanged()
+=======
+void MainWindow::on_lineEdit_15_textChanged(const QString)
+>>>>>>> remotes/origin/sus
 {
 	MainWindow::nultext18();
 }
 
+<<<<<<< HEAD
 void MainWindow::on_lineEdit_16_textChanged()
+=======
+void MainWindow::on_lineEdit_16_textChanged(const QString)
+>>>>>>> remotes/origin/sus
 {
 	MainWindow::nultext18();
 }
 
+<<<<<<< HEAD
 void MainWindow::on_lineEdit_17_textChanged()
+=======
+void MainWindow::on_lineEdit_17_textChanged(const QString)
+>>>>>>> remotes/origin/sus
 {
 	MainWindow::nultext18();
 }
