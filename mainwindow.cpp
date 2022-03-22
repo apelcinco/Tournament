@@ -33,6 +33,21 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::on_saveBt_clicked()
+{
+	QSqlQuery query;
+
+	query.exec("insert into Result (begin, timev, dist, timem)"
+			   "values ('" + ui->lineEdit->text()+ "', '" +
+				ui->lineEdit_8->text() + "', '" +
+				ui->lineEdit_13->text() + "', '" +
+				ui->lineEdit_18->text() + "')");
+
+	model->select();
+
+	query.exec("insert into One ()")
+}
+
 void MainWindow::on_pushButton_clicked()
 {
 	ui->lineEdit->clear();
@@ -93,19 +108,6 @@ void MainWindow::on_lineEdit_17_textEdited(const QString &arg1)
     QString Vtyag = ui->lineEdit_17->text();
 
     ui->lineEdit_18->setText( QString::number((s.toFloat() / t.toFloat()) - Ost.toFloat()));
-}
-
-void MainWindow::on_saveBt_clicked()
-{
-	QSqlQuery query;
-
-	query.exec("insert into Result (begin, timev, dist, timem)"
-			   "values ('" + ui->lineEdit->text()+ "', '" +
-				ui->lineEdit_8->text() + "', '" +
-				ui->lineEdit_13->text() + "', '" +
-				ui->lineEdit_18->text() + "')");
-
-	model->select();
 }
 
 void MainWindow::nultext4() // расчет продолжительности вытягивания
